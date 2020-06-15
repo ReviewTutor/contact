@@ -237,8 +237,11 @@
                                 .new {
                                     color: rgb(30, 30, 30);
                                 }
-                        .space {
-                            opacity: 0%;
+                        .hidden-lg {
+                            display:none;
+                        }
+                        .hidden-md {
+                            display:none;
                         }
                      @media only screen and (max-width: 768px) {
                         .column1 {
@@ -252,6 +255,12 @@
                         .hidden-xs {
                         display:none;
                                     }
+                        .hidden-lg {
+                        display:inline-block;
+                        }
+                        .hidden-md {
+                        display:inline-block;
+                        }
                      }
        </style>
     </head>
@@ -262,7 +271,7 @@
         <ul class="horizontal">
             <li class="horizontal"><a class="active" href="https://reviewtutor.github.io">Home</a></li>
             <li class="horizontal"><a href="https://reviewtutor.github.io/submissions/">Submissions</a></li>
-            <li class="horizontal"><a href="jhttps://reviewtutor.github.io/contact/">Contact</a></li>
+            <li class="horizontal"><a href="https://reviewtutor.github.io/contact/">Contact</a></li>
             <li class="rightli horizontal" style="float:right"><a href="https://reviewtutor.github.io/about/">About</a></li>
         </ul>
     </nav>
@@ -282,6 +291,10 @@
                 <div class="section">
             <p> Email us about any questions, business partnerships, quizzes, custom private parties, and quizzes.
                 We are also open to any suggestions on our websites and quizzes, and would gratefully appreciate any advice. </p>
+
+
+
+
                 <p>Our email:<a class="new" href="mailto:reviewtutors@gmail.com"> reviewtutors@gmail.com</a></p>
                 <p>We'll get back to you as soon as possible. We promise.</p>
             </div>
@@ -292,10 +305,17 @@
             <center>
                 <br class="hidden-sm hidden-xs">
                 <br class="hidden-sm hidden-xs">
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
                 <img src="https://user-images.githubusercontent.com/66401205/84674850-7f0efd80-aef9-11ea-9ffa-7265fcc2beed.png" style="width:80%">
         </center>
         </div>
-
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
         <p class="footer">Copyright &#169; <script>document.write(new Date().getFullYear());</script>, Review Tutor</p>
     </main>
     </body>
