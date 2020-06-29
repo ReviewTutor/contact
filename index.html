@@ -19,7 +19,7 @@
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
 
-	
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <title>Contact Review Tutor</title>
         <style>
             section {
@@ -91,7 +91,8 @@
                
            }
            h3 {
-               color: rgb(49, 49, 49);
+               color: black;
+               font-family: 'Ubuntu Condensed', sans-serif;
            }
            h2 {
                color: black;
@@ -227,8 +228,9 @@
                             float: left;
                             width: 50%;
                            padding: 10px;
-                         height: 300px; /* Should be removed. Only for demonstration */
+                         height: 500px; /* Should be removed. Only for demonstration */
                          margin-bottom: 25%;
+                         margin-top: -10%;
                                     }
 
                         .section {
@@ -263,6 +265,58 @@
                         display:inline-block;
                         }
                      }
+                     input[type=text] {
+                         background-color: #333333;
+                         border-radius: 10px;
+                         width: 200px;
+                         height: 50px;
+                         color: whitesmoke;
+                         font-family: 'Ubuntu Condensed', sans-serif;
+                         padding: 6px;
+                         border-width: 2px;
+                         border-color: rgb(75, 75, 75);
+                         font-size: 14px;
+                     }
+                     input[type=email] {
+                         background-color: #333333;
+                         border-radius: 10px;
+                         border-width: 2px;
+                         border-color: rgb(75, 75, 75);
+                         padding: 6px;
+                         width: 200px;
+                         height: 50px;
+                         color: whitesmoke;
+                         font-family: 'Ubuntu Condensed', sans-serif;
+                         font-size: 14px;
+                     }
+                     #question {
+                         background-color: #333333;
+                         width: 400px;
+                         height: 150px;
+                         resize: none;
+                         border-radius: 10px;
+                         border-color: rgb(75, 75, 75);
+                         border-width: 2px;
+                         color: white;
+                         border-width: 2px;
+                         padding: 6px;
+                         font-family: 'Ubuntu Condensed', sans-serif;
+                         font-size: 14px;
+                     }
+                     #send {
+                         background-color: rgb(100, 100, 100);
+                         border-radius: 10px;
+                         border-width: 0px;
+                         height: 30px;
+                         width: 90px;
+                         font-family: 'Ubuntu Condensed', sans-serif;
+                         font-size: 18px;
+                         margin-top: 7px;
+                     }
+                     #send:hover {
+                         background-color: rgb(60, 60, 60);
+                         color: white;
+                     }
        </style>
     </head>
     <header class="container-fluid">
@@ -284,40 +338,125 @@
             <br class="hidden-sm hidden-xs">
             <br class="hidden-sm hidden-xs">
             <br class="hidden-sm hidden-xs">
-            <br class="hidden-sm hidden-xs">     
-            <br class="hidden-sm hidden-xs">
-            <br class="hidden-sm hidden-xs">
-            <br class="hidden-sm hidden-xs">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <h1> We'd love to hear from you!</h1>
                 <div class="section">
-            <p> Email us about any questions, business partnerships, custom private parties, and quizzes.
+            <p> Email us about any questions, business partnerships, quizzes, and custom private parties.
                 We are also open to any suggestions on our websites and quizzes, and would gratefully appreciate any advice. </p>
 
-
-
-
                 <p>Our email:<a class="new" href="mailto:reviewtutors@gmail.com"> reviewtutors@gmail.com</a></p>
+                
+                <form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="off"> 
+                        <input id="nameField" name="entry.213465586" placeholder="Enter your name" type="text" required> 
+                        <input id="emailField" name="entry.937858181" placeholder="Enter your email" type="email" required><br><br>
+                        <textarea id="question" name="entry.1009381555" placeholder="Your Question" required rows="10" cols="50"></textarea> 
+                        <br>
+                        <button id="send" type="submit" class="common_btn">Submit</button>
+                    </form>
+                    
+                    <h3 id="success-msg" style="text-align: center !important; margin-top:190px !important; display:none; "> Thank You!</h3>
+                    <script>
+                        function postToGoogle() {
+                                        var field1 = $("#nameField").val();
+                                        var field2 = $("#emailField").val();
+                                        var field3 = $("#question").val();
+                                         
+                                        if(field1 == ""){
+                                            alert('Please Fill Your Name');
+                                            document.getElementById("nameField").focus();
+                                            return false;
+                                        }
+                                        if(field2 == ""){
+                                            alert('Please Fill Your Email');
+                                            document.getElementById("emailField").focus();
+                                            return false;
+                                        }
+                                        if(field3 == ""){
+                                            alert('Please Send Us Your Questions');
+                                            document.getElementById("question").focus();
+                                            return false;
+                                        }
+                        
+                                        
+                            
+                                        $.ajax({
+                                            url: "https://docs.google.com/forms/d/e/1FAIpQLSe4frSwiqO2RQDTjW9WV3XQI5d4FbKIjjaom2Wpvj9DUkwIig/formResponse?",
+                                            data: {"entry.213465586": field1, "entry.937858181": field2, "entry.1009381555": field3},
+                                            type: "POST",
+                                            dataType: "xml",
+                                            success: function(d)
+                                            {
+                                            },
+                                            error: function(x, y, z)
+                                                {
+                        
+                                                    $('#success-msg').show();
+                                                    $('#form').hide();
+                                                    
+                                                }
+                                        });
+                                        return false;
+                                    }
+                        </script>
                 <p>We'll get back to you as soon as possible. We promise.</p>
+
             </div>
         </center>
 
             </div>
         <div class="column1">
             <center>
-                <br class="hidden-sm hidden-xs">
-                <br class="hidden-sm hidden-xs">
-		 <br class="hidden-md hidden-lg">
-        	 <br class="hidden-md hidden-lg">
-		 <br class="hidden-md hidden-lg">
-        	 <br class="hidden-md hidden-lg">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
+                <br class="hidden-md hidden-lg">
                 <img src="https://user-images.githubusercontent.com/66401205/84674850-7f0efd80-aef9-11ea-9ffa-7265fcc2beed.png" style="width:80%">
         </center>
         </div>
-        <br class="hidden-xs hidden-md hidden-lg">
-        <br class="hidden-xs hidden-md hidden-lg">
-	<br class="hidden-xs hidden-md hidden-lg">
         <br class="hidden-md hidden-lg">
-	<br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
+        <br class="hidden-md hidden-lg">
         <p class="footer">Copyright &#169; <script>document.write(new Date().getFullYear());</script>, Review Tutor</p>
     </main>
     </body>
